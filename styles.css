@@ -291,7 +291,6 @@ header .logo img {
   }
   
   .booking-slider__slide {
-    margin-left: 10px;
     display: flex;
     align-items: center;
     min-height: 650px;
@@ -669,18 +668,17 @@ header .logo img {
    .gallery-track {
     position: fixed;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 0.25rem;
-    padding: 0.25rem;
     will-change: transform;
   }
   
   .card {
     height: 400px;
     overflow: hidden;
-  
+
     & .card-image-wrapper {
-      height: 135%;
+      height: 110%;
       will-change: transform;
   
       & img {
@@ -696,7 +694,11 @@ header .logo img {
       grid-template-columns: repeat(2,1fr);
     }
   }
-  
+  @media (width < 1500px) {
+    .gallery-track {
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
   @media (width < 550px) {
     .gallery-track {
       grid-template-columns: repeat(1,1fr);
