@@ -3,11 +3,36 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #fff;
     background-color: #f4f4f4;
     position: relative;
   }
-  
+  /* Fractal Plaid Background */
+.fractal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #333 25%, transparent 25%) -50px 0/100px 100px,
+              linear-gradient(135deg, #333 25%, transparent 25%) -50px 0/100px 100px,
+              linear-gradient(45deg, transparent 75%, #111 75%) -50px 0/100px 100px,
+              linear-gradient(135deg, transparent 75%, #111 75%) -50px 0/100px 100px;
+  background-color: #222;
+  animation: animatePlaid 5s linear infinite;
+  z-index: -1;
+}
+
+/* Fractal Plaid Animation */
+@keyframes animatePlaid {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, -100px 100px, 100px -100px, -100px -100px;
+  }
+}
+
   .container {
     width: 90%;
     max-width: 1200px;
@@ -187,28 +212,16 @@ header .logo img {
   }
   
   /* Contact Form */
-  .contact form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .contact .text-contact {
+    margin-top: 50px;
   }
+.contact div .text-contact a{
   
-  .contact form input, .contact form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .contact form button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+}
+
   
   /* Footer */
   footer {
@@ -299,7 +312,7 @@ header .logo img {
   @media screen and (max-width: 991.9px) {
     .booking-slider {
       padding: 0;
-      margin-inline: -20px;
+      /* margin-inline: -20px; */
     }
   }
   
@@ -668,7 +681,7 @@ header .logo img {
    .gallery-track {
     position: fixed;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(5,1fr);
     gap: 0.25rem;
     will-change: transform;
   }
@@ -699,8 +712,16 @@ header .logo img {
       grid-template-columns: repeat(3,1fr);
     }
   }
+  @media (width < 1500px) {
+    .gallery-track {
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
   @media (width < 550px) {
     .gallery-track {
       grid-template-columns: repeat(1,1fr);
+    }
+    .products {
+      margin-top: 50px;
     }
   }

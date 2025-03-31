@@ -100,10 +100,17 @@ window.addEventListener('scroll',init,false);
 window.addEventListener('resize',updateScroll,false);
 
 document.querySelector('.menu-toggle').addEventListener('click', function () {
-    document.querySelector('.menu-overlay').classList.add('active');
+	document.querySelector('.menu-overlay').classList.add('active');
   });
-
+  
   // Đóng menu khi bấm nút ✖
   document.querySelector('.close-menu').addEventListener('click', function () {
-    document.querySelector('.menu-overlay').classList.remove('active');
+	document.querySelector('.menu-overlay').classList.remove('active');
+  });
+  
+  // Đóng menu khi bấm vào bất kỳ liên kết nào trong menu mobile
+  document.querySelectorAll('.menu-overlay .nav-links li a').forEach(function(link) {
+	link.addEventListener('click', function() {
+	  document.querySelector('.menu-overlay').classList.remove('active');
+	});
   });
